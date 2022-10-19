@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>time</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="digital">
+{{time}}
+      </div>
+      <script>
+        const digital = new Vue({
+          el:"#app",
+          data:{
+            now: "0"
+          }
+        });
+        window.onload = function(){
+          setInterval(addTime, 1000);
+        }
+        function addTime(){
+        const date = new Date();
+        digital.now = date.getFullYear() +"년"
+        + (date.getMonth()+1)+"월"
+        + date.getDate()+"일"
+        + date.getHours()+":"
+        + date.getMinutes()+":"
+        + date.getSeconds()
+      }
+        </script>
+  </body>
+</html>
